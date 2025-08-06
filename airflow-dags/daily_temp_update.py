@@ -56,6 +56,22 @@ def docker_dag():
             )
         ],
     )
+    dbt_snapshot = DockerOperator(
+        task_id="dbt_snapshot",
+        image="dbt",
+        container_name="dbt_snapshot-{{ds}}-" + get_uuid(),
+        auto_remove=True,
+        command='sh -c "cd dbt_idnclimate && dbt snapshot"',
+        docker_url="unix://var/run/docker.sock",
+        network_mode="bridge",
+        mounts=[
+            Mount(
+                source=".dbt",
+                target="/root/.dbt",
+                type="bind",
+            )
+        ],
+    )
     dbt_test = DockerOperator(
         task_id="dbt_test",
         image="dbt",
