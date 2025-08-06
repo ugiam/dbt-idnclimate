@@ -30,3 +30,4 @@
     ```shell
     python python-script/data_import.py
     ```
+1. Activate dbt_idnclimate dag in airflow service.

@@ -45,12 +45,12 @@ def docker_dag():
         image="dbt",
         container_name="dbt_run-{{ds}}-" + get_uuid(),
         auto_remove=True,
-        command="cd dbt_idnclimate && dbt run",
+        command='sh -c "cd dbt_idnclimate && dbt run"',
         docker_url="unix://var/run/docker.sock",
         network_mode="bridge",
         mounts=[
             Mount(
-                source=".dbt/",
+                source=".dbt",
                 target="/root/.dbt",
                 type="bind",
             )
@@ -61,12 +61,12 @@ def docker_dag():
         image="dbt",
         container_name="dbt_test-{{ds}}-" + get_uuid(),
         auto_remove=True,
-        command="cd dbt_idnclimate && dbt test",
+        command='sh -c "cd dbt_idnclimate && dbt test"',
         docker_url="unix://var/run/docker.sock",
         network_mode="bridge",
         mounts=[
             Mount(
-                source=".dbt/",
+                source=".dbt",
                 target="/root/.dbt",
                 type="bind",
             )
