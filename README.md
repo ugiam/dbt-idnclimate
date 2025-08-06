@@ -11,7 +11,7 @@
     ```shell
     docker build -f Dockerfile -t dbt:latest .
     ```
-1.  Edit daily_temp_update.py Mount source for dbt_run and dbt_test. cd .dbt && pwd and then copy the directory into dag python script
+1.  Open airflow-dags then edit daily_temp_update.py Mount source for dbt_run and dbt_test task. Here is a guide to know the exact directory `cd .dbt && pwd` and then copy the directory into dag python script
     ```python
     mounts=[
         Mount(
