@@ -1,0 +1,9 @@
+SELECT
+    *
+FROM
+    {{ ref('fct_temperature') }}
+WHERE
+    MIN_TEMPERATURE IS NULL OR 
+    MIN_TEMPERATURE IS NULL OR
+    AVG_TEMPERATURE IS NULL
+LIMIT 10

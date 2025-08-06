@@ -1,0 +1,13 @@
+dbt_idnclimate:
+  outputs:
+    dev:
+      account: 
+      database: IDNCLIMATE
+      password: 
+      role: DATA_ENGINEER
+      schema: DEV
+      threads: 1
+      type: snowflake
+      user: 
+      warehouse: COMPUTE_WH
+  target: dev

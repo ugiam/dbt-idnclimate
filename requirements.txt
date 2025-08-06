@@ -1,0 +1,3 @@
+dbt-snowflake
+python-dotenv
+pandas

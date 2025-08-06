@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: fct_temperature
+    columns:
+
+     - name: station_id
+       description: The station's id. References from the station table
+       tests:
+         - not_null
+         - relationships:
+             to: ref('dim_station')
+             field: station_id
+
+     - name: min_temperature
+       description: Minimal temperature
+       tests:
+         - not_null
+
+     - name: max_temperature
+       description: Maximal temperature
+       tests:
+         - not_null
+
+     - name: avg_temperature
+       description: Average temperature
+       tests:
+         - not_null
